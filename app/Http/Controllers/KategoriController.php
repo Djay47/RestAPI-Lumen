@@ -13,7 +13,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        // echo "<h1>Index Page</h1>";
+        return response()->json("Index Page");
     }
 
     /**
@@ -21,9 +22,9 @@ class KategoriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return response()->json($request);
     }
 
     /**
@@ -46,6 +47,7 @@ class KategoriController extends Controller
     public function show($id)
     {
         //
+        return response()->json("ID-$id Displayed");
     }
 
     /**
@@ -68,7 +70,7 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return response()->json("ID-$id Updated");
     }
 
     /**
@@ -79,6 +81,6 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return response()->json("ID-$id Deleted");
     }
 }
