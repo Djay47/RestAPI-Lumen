@@ -26,9 +26,16 @@ class PelangganController extends Controller
      */
     public function create(Request $request)
     {
-        Pelanggan::create($request->all());
+        $this->validate($request, [
+            'pelanggan' => 'required|max:225',
+            'alamat' => 'required|max:225',
+            'telepon' => 'required|max:225|numeric',
+            'email' => 'required|max:225'
+        ]);
 
-        return response()->json('Data Created');
+        $pelanggan = Pelanggan::create($request->all());
+
+        return response()->json($pelanggan);
     }
 
     /**
@@ -77,7 +84,7 @@ class PelangganController extends Controller
     {
         Pelanggan::where('idpelanggan', $id)->update($request->all());
 
-        return response()->json("ID-$id Updated")
+        return response()->json("ID-$id Updated");
     }
 
     /**
