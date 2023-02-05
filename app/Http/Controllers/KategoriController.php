@@ -88,6 +88,8 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
+        Kategori::where('idkategori', $id)->delete();
+
         return response()->json("ID-$id Deleted");
     }
 }

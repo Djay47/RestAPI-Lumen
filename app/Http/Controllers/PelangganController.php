@@ -84,8 +84,10 @@ class PelangganController extends Controller
      * @param  \App\Models\Pelanggan  $pelanggan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pelanggan $pelanggan)
+    public function destroy($id)
     {
-        //
+        Pelanggan::where('idpelanggan', $id)->delete();
+
+        return response()->json("ID-$id Deleted");
     }
 }
