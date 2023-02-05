@@ -28,7 +28,9 @@ class KategoriController extends Controller
      */
     public function create(Request $request)
     {
-        return response()->json($request);
+        Kategori::create($request->all());
+
+        return response()->json('Data Created');
     }
 
     /**

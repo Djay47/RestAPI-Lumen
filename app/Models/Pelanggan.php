@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pelanggan extends Model
 {
-    //
+    protected $fillabel = ['pelanggan', 'alamat', 'telepon', 'email'];
 }
