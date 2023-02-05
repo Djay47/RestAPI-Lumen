@@ -73,9 +73,11 @@ class PelangganController extends Controller
      * @param  \App\Models\Pelanggan  $pelanggan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pelanggan $pelanggan)
+    public function update(Request $request, $id)
     {
-        //
+        Pelanggan::where('idpelanggan', $id)->update($request->all());
+
+        return response()->json("ID-$id Updated")
     }
 
     /**
