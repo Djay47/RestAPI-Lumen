@@ -41,9 +41,18 @@ class MenuController extends Controller
             'harga' => $request->input('harga')
         ];
 
-        Menu::create($data);
+        $menu = Menu::create($data);
 
-        return response()->json($data);
+        if ($menu)
+        {
+            $result = [ 'status' => 201, 'pesan' => 'Data berhasil dibuat', 'data' => $data ];
+        }
+        else
+        {
+            $result = [ 'status' => 400, 'pesan' => 'Data gagal dibuat', 'data' => '' ];
+        }
+
+        return response()->json($result);
     }
 
     /**
