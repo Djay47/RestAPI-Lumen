@@ -15,6 +15,14 @@ class LoginController extends Controller
      */
     public function register(Request $request)
     {
+        $this->validate($request, [
+            'user' => 'required|alpha|min:3',
+            'email' => 'required|email',
+            'password' => 'required',
+            'posisi' => 'required|alpha',
+            'status' => 'required',
+        ]);
+
         $data = [
             'user' => $request->input('user'), 
             'email' => $request->input('email'),
@@ -32,6 +40,11 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+       $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
         $email = $request->input('email');
         $password = $request->input('password');
 
